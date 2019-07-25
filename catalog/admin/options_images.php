@@ -9,7 +9,7 @@
 
   Released under the GNU General Public License
 */
-  $language_id = '1';
+
   require('includes/application_top.php');
 	
   //check that destination directory exists and is writeable
@@ -38,18 +38,18 @@
         tep_db_query("update " . TABLE_PRODUCTS_OPTIONS . " set products_options_images_enabled = 'false'");
         if ( !empty($_POST ['option_select']) ) {
           foreach ($_POST ['option_select'] as $options_selected){
-            tep_db_query("update " . TABLE_PRODUCTS_OPTIONS .  " set products_options_images_enabled = 'true' where products_options_id = '" . $options_selected . "'"); 
+            tep_db_query("update " . TABLE_PRODUCTS_OPTIONS .  " set products_options_images_enabled = 'true' where products_options_id = '" . (int)$options_selected . "'");
           }
         }
         break;
 
       case 'delete':
-        $options_query = tep_db_query("select products_options_values_thumbnail from " . TABLE_PRODUCTS_OPTIONS_VALUES . " where  products_options_values_id = '" . $_GET['cID'] . "'");
+        $options_query = tep_db_query("select products_options_values_thumbnail from " . TABLE_PRODUCTS_OPTIONS_VALUES . " where  products_options_values_id = '" . (int)$_GET['cID'] . "'");
         $options_id = tep_db_fetch_array($options_query);
         @unlink(DIR_FS_CATALOG_IMAGES.'options/'.$options_id['products_options_values_thumbnail']);
 
         //tep_db_query("update " . TABLE_PRODUCTS_OPTIONS_VALUES . " set products_options_values_thumbnail = '' where products_options_values_id = '" . tep_db_input($vID) . "'");
-        tep_db_query("update " . TABLE_PRODUCTS_OPTIONS_VALUES . " set products_options_values_thumbnail = '' where products_options_values_id = '" . $_GET['cID'] . "'");
+        tep_db_query("update " . TABLE_PRODUCTS_OPTIONS_VALUES . " set products_options_values_thumbnail = '' where products_options_values_id = '" . (int)$_GET['cID'] . "'");
         tep_redirect(tep_href_link('options_images.php', tep_get_all_get_params(array('action'))));
         break;
     }
@@ -77,14 +77,14 @@ require('includes/template_top.php');
       }else if (isset($_GET['box_id'])){
         $options_id = $_GET['box_id'];
       }else if (isset($_GET['cID'])){
-        $options_query = tep_db_query("select products_options_id from " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " where products_options_values_id='" . $_GET['cID'] . "'");
+        $options_query = tep_db_query("select products_options_id from " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " where products_options_values_id='" . (int)$_GET['cID'] . "'");
         $options = tep_db_fetch_array ($options_query);
         $options_id = $options['products_options_id'];
       }else{
         $options_id = 'SELECT';
       }
 
-      $options_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id='" . $language_id . "'");
+      $options_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id='" . (int)$languages_id . "'");
 			$i=0;
       while ($options = tep_db_fetch_array ($options_query)){
 			  $values[$i]['id']= $options['products_options_id'];
@@ -113,13 +113,13 @@ require('includes/template_top.php');
               </tr>
 <?php
   	
-  $query1 = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " where products_options_id = '" . $options_id . "'" );
+  $query1 = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS_VALUES_TO_PRODUCTS_OPTIONS . " where products_options_id = '" . (int)$options_id . "'" );
 	//First find all the products options values that belong to the selected product option
   while ($result1 = tep_db_fetch_array($query1)) {
 	  $products_options_values_id = $result1['products_options_values_id'];
 
 		//Now pull their details from the database
-   $query2 = tep_db_query ("select * from " . TABLE_PRODUCTS_OPTIONS_VALUES . " where products_options_values_id = '" . $products_options_values_id . "' and language_id = '" .$language_id . "'");
+   $query2 = tep_db_query ("select * from " . TABLE_PRODUCTS_OPTIONS_VALUES . " where products_options_values_id = '" . (int)$products_options_values_id . "' and language_id = '" .(int)$languages_id . "'");
 		while ($result2 = tep_db_fetch_array($query2)) {
 		  $products_options_values_name = $result2 ['products_options_values_name']; 
 		  $products_options_values_thumbnail = $result2['products_options_values_thumbnail'];
