@@ -192,7 +192,7 @@ require('includes/template_top.php');
 <?php
   echo tep_draw_form('update_enabled_options', 'options_images.php', '&cID=' . $selected_value['id'] . '&box_id=' . $options_id . '&action=update_enabled', 'post');  
   echo '<tr><td class="smalltext">' . TEXT_ENABLED_CATEGORIES . '</td></tr>';
-  $options_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id = '" . (int)$language_id . "'");
+  $options_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id = '" . (int)$languages_id . "'");
 	
 	echo '<tr><td class="smalltext">';
 	while ($options = tep_db_fetch_array ($options_query)){
