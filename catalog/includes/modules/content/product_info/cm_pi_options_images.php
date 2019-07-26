@@ -130,13 +130,13 @@
         tep_db_query("ALTER TABLE `products_options` ADD `products_options_images_enabled` VARCHAR(5) DEFAULT 'false' NOT NULL");
       }	         
     }
-
+    /*   NEED BACKUP AND AVOID CONFLICTS WITH ORHER ADDONS BEFORE DELETING DATA !!!!
     function remove() {
       tep_db_query("delete from configuration where configuration_key in ('" . implode("', '", $this->keys()) . "')");
 	  tep_db_query("ALTER TABLE `products_options_values` DROP `products_options_values_thumbnail`");
 	  tep_db_query("ALTER TABLE `products_options` DROP `products_options_images_enabled`");
     }
-
+    */
     function keys() {
       return array('MODULE_CONTENT_PI_OI_STATUS', 'MODULE_CONTENT_PI_OI_CONTENT_WIDTH', 'MODULE_CONTENT_PI_OI_HELPER', 'MODULE_CONTENT_PI_OI_ENFORCE', 'MODULE_CONTENT_PI_OI_SORT_ORDER', 'MODULE_CONTENT_PI_OI_WIDTH', 'MODULE_CONTENT_PI_OI_HEIGHT');
     }
