@@ -107,3 +107,10 @@ label > input:checked + img {
   }
 /* Options as images EOF */
 
+
+ToDo
+****
+1. IMPORTANT : function remove() - have to backup affected data before deleting them and avoid a conflict with dependency of other addons using same db columns
+2. Full width thumbnails without zoom for mobile devices
+3. Bootstrap 4 form class="was-validated" to mark labels (products_options_name) of empty options which are required. May need to change the file catalog/product_info.php - add class to the form on line 46 (BS Frozen) 
+3. Sorting Options, remove temporary "$byField" solution

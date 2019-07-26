@@ -37,8 +37,10 @@
       
       $content_width = (int)MODULE_CONTENT_PI_OI_CONTENT_WIDTH;
       $options_images_output = null;
+      $byField = null;
+      $byField = 'FIELD(products_options_id, "28", "30" ) ASC,';  // priority of selected options - sort Options which you like to move to the end (ASC) or to the top (DESC) of options block
         
-      $products_options_name_query = tep_db_query("select distinct popt.products_options_id, popt.products_options_name, popt.products_options_images_enabled from products_options popt, products_attributes patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "' order by popt.products_options_name");
+      $products_options_name_query = tep_db_query("select distinct popt.products_options_id, popt.products_options_name, popt.products_options_images_enabled from products_options popt, products_attributes patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "' order by $byField popt.products_options_name");
 
       if (tep_db_num_rows($products_options_name_query)) {
         while ($products_options_name = tep_db_fetch_array($products_options_name_query)) {
