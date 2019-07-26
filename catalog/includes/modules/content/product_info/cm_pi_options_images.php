@@ -132,7 +132,7 @@
         tep_db_query("ALTER TABLE `products_options` ADD `products_options_images_enabled` VARCHAR(5) DEFAULT 'false' NOT NULL");
       }	         
     }
-    /*   NEED BACKUP AND AVOID CONFLICTS WITH ORHER ADDONS BEFORE DELETING DATA !!!!
+    /*   NEED BACKUP AND AVOID CONFLICTS WITH OTHER ADDONS BEFORE DELETING DATA !!!!
     function remove() {
       tep_db_query("delete from configuration where configuration_key in ('" . implode("', '", $this->keys()) . "')");
 	  tep_db_query("ALTER TABLE `products_options_values` DROP `products_options_values_thumbnail`");
