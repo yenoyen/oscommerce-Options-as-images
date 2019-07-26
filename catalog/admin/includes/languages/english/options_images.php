@@ -22,4 +22,7 @@ define ('TEXT_SELECT_FILE', 'Choose File for uploading');
 define ('ERROR_OPTIONS_IMAGE_DIRECTORY_DOES_NOT_EXIST', 'Error : /catalog/images/options folder does not exist');
 define ('ERROR_OPTIONS_IMAGES_DIRECTORY_NOT_WRITEABLE', 'Warning : /catalog/images/options folder is not writeable');
 
+define ('TEXT_SELECT_CATEGORY', 'Select an option category to edit: ');
+define ('TEXT_ENABLED_CATEGORIES', 'You currently have Options as Images enabled for the following options categories: ');
+
 ?>

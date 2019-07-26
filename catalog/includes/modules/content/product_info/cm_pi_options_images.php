@@ -39,7 +39,7 @@
       $options_images_output = null;
         
       $products_options_name_query = tep_db_query("select distinct popt.products_options_id, popt.products_options_name, popt.products_options_images_enabled from products_options popt, products_attributes patrib where patrib.products_id='" . (int)$_GET['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "' order by popt.products_options_name");
-	  
+
       if (tep_db_num_rows($products_options_name_query)) {
         while ($products_options_name = tep_db_fetch_array($products_options_name_query)) {
           $products_options_array = array();
@@ -77,9 +77,9 @@
           $options_images_output .= '</div>';
 	} else {  
 		  $options_images_output .=  '<div class="clearfix"></div>';	
-		  $options_images_output .=  '<div class="row">';	
-		  $options_images_output .=   '<label for="input_' . $products_options_name['products_options_id'] . '" class="control-label col-sm-3">' . $products_options_name['products_options_name'] . '</label>'; 
-		  $options_images_output .=   '<div class="col-sm-9">';
+		  $options_images_output .=  '<div class="row">';
+		  $options_images_output .=   '<label for="input_' . $products_options_name['products_options_id'] . '" class="control-label col-sm-3">' . $products_options_name['products_options_name'] . '</label>';
+		  $options_images_output .=   '<div class="col-sm-12">';
 			  foreach ($products_options_array as $opti_array) {
 				  $options_images_output .= '<label>';
 				  $options_images_output .= '<input type="radio" name ="id[' . $products_options_name['products_options_id'] . ']" value="' . $opti_array['id'] . '"  class="sr-only" required>';

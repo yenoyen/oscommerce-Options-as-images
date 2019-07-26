@@ -70,8 +70,9 @@ require('includes/template_top.php');
             <td class="pageHeading"><?php echo HEADER_TITLE; ?></td>
             <td class="pageHeading" align="right"><?php echo tep_draw_separator('pixel_trans.gif', HEADING_IMAGE_WIDTH, HEADING_IMAGE_HEIGHT); ?></td>
           </tr>
-          <tr><td class="smalltext">Select an option category to edit:  
-<?php
+          <tr><td class="smalltext"><?php
+      echo TEXT_SELECT_CATEGORY;
+
       if (isset($_POST['box_select'])){
         $options_id = $_POST['box_select'];
       }else if (isset($_GET['box_id'])){
@@ -190,8 +191,8 @@ require('includes/template_top.php');
 	
 <?php
   echo tep_draw_form('update_enabled_options', 'options_images.php', '&cID=' . $selected_value['id'] . '&box_id=' . $options_id . '&action=update_enabled', 'post');  
-  echo '<tr><td class="smalltext">You currently have Options as Images enabled for the following options categories:</td></tr>';
-  $options_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id = '" . $language_id . "'");
+  echo '<tr><td class="smalltext">' . TEXT_ENABLED_CATEGORIES . '</td></tr>';
+  $options_query = tep_db_query("select * from " . TABLE_PRODUCTS_OPTIONS . " where language_id = '" . (int)$language_id . "'");
 	
 	echo '<tr><td class="smalltext">';
 	while ($options = tep_db_fetch_array ($options_query)){

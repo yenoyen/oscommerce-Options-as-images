@@ -42,6 +42,68 @@ Use this to select an option category - you should then see a list of the option
 that category. Now click the option you wish to add an image to and click the "Edit" button that 
 appears. A dialogue now appears with which you can select and image from your hard drive for uploading.
 
+When you use "Options as Images" you should disable "Options & Attributes" in admin: Modules/Content/Options & Attributes (product_info section).
+
+Copy CSS to the end of your catalog/user.css file.
+
 -------------------------------------------------------------------------
 Support Thread: http://forums.oscommerce.com/index.php?showtopic=317064
 -------------------------------------------------------------------------
+
+
+/* Options as images BOF */
+
+/* Remove input from document flow */
+label > input{
+  position: absolute;
+}
+
+/* IMAGE STYLES */
+label > input + img {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+label > input + img:hover {
+  -webkit-box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 5px 3px rgba(0,0,0,0.75);
+  border: none;
+}
+
+/* (RADIO CHECKED) IMAGE STYLES */
+label > input:checked + img {
+  border: 2px solid #00d502;
+}
+
+/* ZOOM */
+.cm-pi-options-images label:not(.control-label) {
+  padding: 0px;
+  transition: transform .33s;
+  margin: 0 auto;
+  max-width: 50vw;
+}
+.cm-pi-options-images label:not(.control-label):hover {
+  z-index: 9;
+  transform: scale(2.5);
+  max-width: 100%;
+  /* (Note: if the zoom is too large, it will go outside of the viewport) */
+  /* Maximum zoom scale should by 2.5 to be able to click the next thumbnail */
+  }
+ 
+/* Options as images block */  
+.cm-pi-options-images {
+  margin-top: 0rem;
+  margin-bottom: 5rem;
+      
+  }
+/* Options as images caption */  
+.cm-pi-options-images h4,  
+.cm-pi-options-images h4.h3 {
+  font-size: 110%;
+  }  
+/* Options labels */
+.cm-pi-options-images .control-label {
+  margin-top: 1rem;      
+  }
+/* Options as images EOF */
+
