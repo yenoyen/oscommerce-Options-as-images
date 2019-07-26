@@ -1,5 +1,4 @@
 <div class="col-sm-<?php echo $content_width; ?> cm-pi-options-images">
-  <h4 class="h3"><?php echo MODULE_CONTENT_PI_OI_HEADING_TITLE; ?></h4>
 <?php
 if(defined(MODULE_CONTENT_PI_OI_HEADING_TITLE)) {
   echo'  <h4 class="h3">' . MODULE_CONTENT_PI_OI_HEADING_TITLE .'</h4>'. PHP_EOL;
