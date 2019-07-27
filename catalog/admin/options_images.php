@@ -9,7 +9,6 @@
 
   Released under the GNU General Public License
 */
-
   require('includes/application_top.php');
 	
   //check that destination directory exists and is writeable
@@ -95,7 +94,7 @@ require('includes/template_top.php');
       echo tep_draw_form('box_selection', 'options_images.php','');
       //echo tep_draw_pull_down_menu('box_select', $values, '6', 'onChange="this.form.submit();"');
       echo tep_draw_pull_down_menu('box_select', $values, $options_id);
-      echo tep_image_submit('button_edit.gif', IMAGE_EDIT);
+      echo tep_draw_button(IMAGE_EDIT, 'document', '', 'primary');
       echo '</form>';
 				
 ?>
@@ -201,7 +200,7 @@ require('includes/template_top.php');
 	  echo $options['products_options_name'] . tep_draw_selection_field('option_select[' . $options['products_options_id'] . ']', 'checkbox', $options['products_options_id'], $checked) . '  |  ';
 	}
    	
-  echo tep_image_submit('button_update.gif', IMAGE_UPDATE);
+	echo tep_draw_button(IMAGE_UPDATE, 'document', '', 'primary');
 	echo '</td></tr>';
 
  	
