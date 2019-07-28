@@ -1,7 +1,7 @@
-Install Instructions for Options as Images BS v2.2
-===================================================
+Install Instructions for Options as Images BS v2.2.1
+====================================================
 
-version 2.2
+version 2.2.1
 This is a working version for osC CE Frozen version, and will only work on the community bootstrap versions of oscommerce..
 
 The operational module and framework was made by andes1 and the compilation of working fixes used 
@@ -20,9 +20,9 @@ How to Install
 1. Copy all the new files into their respective folders. You should have the following files to copy:
 
   /catalog/admin/options_images.php
-  /catalog/admin/includes/boxes/catalog_oi_content.php
   /catalog/admin/includes/languages/english/options_images.php
-  /catalog/admin/includes/languages/english/modules/boxes/catalog_oi_content.php
+  /catalog/admin/includes/languages/english/modules/boxes/options_images.php
+  /catalog/includes/languages/english/modules/boxes/bm_options_images.php
   /catalog/includes/languages/english/modules/content/product_info/cm_pi_options_images.php
   /catalog/includes/modules/content/product_info/cm_pi_options_images.php
   /catalog/includes/modules/content/product_info/templates/tpl_cm_pi_options_images.php
@@ -50,6 +50,8 @@ Copy CSS to the end of your catalog/user.css file.
 Support Thread: http://forums.oscommerce.com/index.php?showtopic=317064
 -------------------------------------------------------------------------
 
+Copy CSS to the end of your catalog/user.css file:
+--------------------------------------------------
 
 /* Options as images BOF */
 
