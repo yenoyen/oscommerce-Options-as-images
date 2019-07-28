@@ -9,4 +9,4 @@
 
 */
 
-define('BOX_CATALOG_OPTIONS_IMAGES', 'Options Images');
+define('MODULES_ADMIN_MENU_CATALOG_OPTIONS_IMAGES', 'Options Images');  // admin left menu   v2.1.-2.2 BOX_CATALOG_OPTIONS_IMAGES
