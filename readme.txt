@@ -15,14 +15,14 @@ I have also removed the option to have a larger pop up image of the option as I 
 
 
 
-How to Install
+How to Install v2.2.1
 ===============
 1. Copy all the new files into their respective folders. You should have the following files to copy:
 
   /catalog/admin/options_images.php
-  /catalog/admin/includes/boxes/catalog_oi_content.php
   /catalog/admin/includes/languages/english/options_images.php
-  /catalog/admin/includes/languages/english/modules/boxes/catalog_oi_content.php
+  /catalog/admin/includes/languages/english/modules/boxes/options_images.php
+  /catalog/includes/languages/english/modules/boxes/bm_options_images.php
   /catalog/includes/languages/english/modules/content/product_info/cm_pi_options_images.php
   /catalog/includes/modules/content/product_info/cm_pi_options_images.php
   /catalog/includes/modules/content/product_info/templates/tpl_cm_pi_options_images.php
@@ -44,11 +44,13 @@ appears. A dialogue now appears with which you can select and image from your ha
 
 When you use "Options as Images" you should disable "Options & Attributes" in admin: Modules/Content/Options & Attributes (product_info section).
 
-Copy CSS to the end of your catalog/user.css file.
-
 -------------------------------------------------------------------------
 Support Thread: http://forums.oscommerce.com/index.php?showtopic=317064
 -------------------------------------------------------------------------
+
+
+Copy CSS to the end of your catalog/user.css file:
+--------------------------------------------------
 
 
 /* Options as images BOF */
