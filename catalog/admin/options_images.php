@@ -21,8 +21,8 @@
   if ($_GET['action']) {
     switch ($_GET['action']) {
       case 'save':
-        $image_source = $HTTP_POST_FILES['value_image_input']['tmp_name'];
-        $filename = $HTTP_POST_FILES['value_image_input']['name'];
+        $image_source = $_FILES['value_image_input']['tmp_name'];
+        $filename = $_FILES['value_image_input']['name'];
         $image_destination = DIR_FS_CATALOG_IMAGES . 'options/' . $filename;
         $cID = tep_db_prepare_input($_GET['cID']);
 		if ($option_value_image = new upload('value_image_input', DIR_FS_CATALOG_IMAGES.'options/')) {
@@ -94,7 +94,7 @@ require('includes/template_top.php');
       echo tep_draw_form('box_selection', 'options_images.php','');
       //echo tep_draw_pull_down_menu('box_select', $values, '6', 'onChange="this.form.submit();"');
       echo tep_draw_pull_down_menu('box_select', $values, $options_id);
-      echo tep_draw_button(IMAGE_EDIT, 'document', '', 'primary');
+      echo tep_draw_button(IMAGE_EDIT, 'document', null, 'primary');
       echo '</form>';
 				
 ?>
@@ -200,7 +200,7 @@ require('includes/template_top.php');
 	  echo $options['products_options_name'] . tep_draw_selection_field('option_select[' . $options['products_options_id'] . ']', 'checkbox', $options['products_options_id'], $checked) . '  |  ';
 	}
    	
-	echo tep_draw_button(IMAGE_UPDATE, 'document', '', 'primary');
+	echo tep_draw_button(IMAGE_UPDATE, 'document', null, 'primary');
 	echo '</td></tr>';
 
  	
